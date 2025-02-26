@@ -5,8 +5,6 @@
 
 `default_nettype none
 
-
-
 module custom_logic (
     input [7:0] A,  // 8-bit input A
     input [7:0] B,  // 8-bit input B

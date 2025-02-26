@@ -25,3 +25,13 @@ module tt_um_example (
   wire _unused = &{ena, clk, rst_n, 1'b0};
 
 endmodule
+
+module bitwise_majority (
+    input  wire [7:0] A,      // First 8-bit input
+    input  wire [7:0] B,      // Second 8-bit input
+    output wire [7:0] C       // 8-bit Output
+);
+
+  assign C = (A & B) | (A ^ B); // Bitwise majority function
+
+endmodule

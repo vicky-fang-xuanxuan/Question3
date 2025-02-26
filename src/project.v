@@ -5,23 +5,12 @@
 
 `default_nettype none
 
-module custom_logic (
-    input [7:0] A,  // 8-bit input A
-    input [7:0] B,  // 8-bit input B
-    output reg [7:0] C  // 8-bit output C
+module bitwise_majority (
+    input  wire [7:0] A,      // First 8-bit input
+    input  wire [7:0] B,      // Second 8-bit input
+    output wire [7:0] C       // 8-bit Output
 );
 
-    // Internal signal for XOR result
-    wire [7:0] xor_result;
-    assign xor_result = A ^ B;  // Bitwise XOR of A and B
-
-    // Conditional inversion based on A[7]
-    always @(*) begin
-        if (A[7] == 1'b0) begin
-            C = xor_result;  // Output is XOR result
-        end else begin
-            C = ~xor_result;  // Output is inverted XOR result
-        end
-    end
+  assign C = (A & B) | (A ^ B); // Bitwise majority function
 
 endmodule
